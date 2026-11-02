@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dial</title>
+<style>body{margin:0;font-family:-apple-system,system-ui,sans-serif;background:#F4F4F2;color:#111214;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box}
+a{display:block;margin:18px auto 0;padding:16px 28px;border-radius:14px;background:#111214;color:#fff;font-size:20px;font-weight:600;text-decoration:none}p{color:#6B6E73;font-size:15px}</style></head>
+<body><div><p id="t">Opening Phone…</p><a id="go" href="#">Call</a><p>If nothing happens, tap Call.</p></div>
+<script>(function(){var raw=decodeURIComponent((location.hash||"").slice(1)),k=raw.charAt(0)==="s"?"sms:":"tel:",n=raw.replace(/^[st]/,"").replace(/[^\d+]/g,"");
+if(!/^\+?\d{7,15}$/.test(n)){document.getElementById("t").textContent="No number.";document.getElementById("go").style.display="none";return;}
+var u=k+n,a=document.getElementById("go");a.href=u;a.textContent=(k==="sms:"?"Text ":"Call ")+n.replace(/^\+?1?(\d{3})(\d{3})(\d{4})$/,"($1) $2-$3");
+document.getElementById("t").textContent=k==="sms:"?"Opening Messages…":"Opening Phone…";setTimeout(function(){location.href=u;},150);})();</script></body></html>
